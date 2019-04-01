@@ -1,0 +1,20 @@
+//Con este programa contamos el numero de veces que se pulsa
+//Tiene el inconveniente de que se producen saltos en la cuenta por los rebotes
+int contador = 0;
+int n = contador ;
+
+void setup()
+   {   Serial.begin(9600);
+       attachInterrupt( 0, ServicioBoton, FALLING);
+   }
+void loop()
+   {
+       if (n != contador)
+          {     Serial.println(contador);
+                n = contador ;
+          }
+   }
+
+void ServicioBoton() 
+   {    contador++ ;
+   }
